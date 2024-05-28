@@ -1,11 +1,9 @@
 import RegisterForm from "@/components/auth/register-form"
 
 const RegisterPage = () => {
-  return (
-    <div>
+  return ( 
        <RegisterForm/>
-    </div>
-  )
+     )
 }
 
 export default RegisterPage

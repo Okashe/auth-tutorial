@@ -13,9 +13,9 @@ import { Form, FormControl, FormItem, FormField, FormLabel, FormMessage} from ".
 import CardWrapper from "./card-wrapper"
 import FormError from "../form-error"
 import FormSuccess from "../form-success"
-import { login } from "@/actions/login"
+import { register } from "@/actions/register"
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [error, setError] = useState< string | undefined>("")
   const [success, setSuccess] = useState<string | undefined>("")
 
@@ -33,7 +33,7 @@ const LoginForm = () => {
     setError("")
     setSuccess("")
     startTransition(()=>{
-      login(values)
+      register(values)
       .then((data)=>{
         setError(data.error)
         setSuccess(data.success)
@@ -115,7 +115,7 @@ const LoginForm = () => {
              type="submit"
              className="w-full"
              >
-              Login
+              Create an account
             </Button>
           </form>
        </Form>
@@ -123,4 +123,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm
+export default RegisterForm
