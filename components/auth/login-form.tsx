@@ -26,7 +26,10 @@ const LoginForm = () => {
   })
 
   const onSubmit = (values: z.infer<typeof LoginSchema>)=>{
-    login(values)
+    startTransition(()=>{
+      login(values)
+    })
+   
   }
   return (
     <CardWrapper
@@ -48,6 +51,7 @@ const LoginForm = () => {
                     <FormControl>
                       <Input
                          { ...field }
+                         disabled={isPending}
                          placeholder="John.doe@example.com"
                          type="email"
                        />
@@ -66,6 +70,7 @@ const LoginForm = () => {
                     <FormControl>
                       <Input
                          {...field}
+                         disabled={isPending}
                          placeholder= "******"
                          type = "password"
                        />
@@ -78,6 +83,7 @@ const LoginForm = () => {
             <FormError message=""/>
             <FormSuccess message=""/>
             <Button
+             disabled={isPending}
              type="submit"
              className="w-full"
              >
